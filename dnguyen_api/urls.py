@@ -17,9 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from dnguyen_api.views.dnguyen_api import test
+from dnguyen_api.views.dnguyen_api import *
 
 urlpatterns = [
     path('test', test),
+    path('test_update', test_update),
     path('admin/', admin.site.urls),
 ]
