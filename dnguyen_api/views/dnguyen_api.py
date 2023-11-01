@@ -10,3 +10,8 @@ def test_update(request):
 	response = http.HttpResponse('{"result": "OK", "reply": "Đây là api test update"}')
 	response['content-type'] = 'application/json; charset=utf-8'
 	return response
+
+def docker(request):
+	response = http.HttpResponse('{"result": "OK", "reply": "docker api trả về kết quả"}')
+	response['content-type'] = 'application/json; charset=utf-8'
+	return response

@@ -22,5 +22,6 @@ from dnguyen_api.views.dnguyen_api import *
 urlpatterns = [
     path('test', test),
     path('test_update', test_update),
+    path('docker', docker),
     path('admin/', admin.site.urls),
 ]
