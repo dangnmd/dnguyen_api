@@ -23,5 +23,7 @@ urlpatterns = [
     path('test', test),
     path('test_update', test_update),
     path('docker', docker),
+    path('deeper_api', deeper_api),
+    path('chiencon', chiencon),
     path('admin/', admin.site.urls),
 ]
