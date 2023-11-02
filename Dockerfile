@@ -43,7 +43,7 @@ USER appuser
 COPY . .
 
 # Expose the port that the application listens on.
-EXPOSE 8000
+# EXPOSE 8000
 
 # Run the application.
 CMD gunicorn 'dnguyen_api.wsgi' --bind=0.0.0.0:8000

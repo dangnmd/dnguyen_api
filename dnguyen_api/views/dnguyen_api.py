@@ -18,8 +18,8 @@ def docker(request):
 	return response
 
 def deeper_api(request):
-	chiencon_response = requests.get('http://172.17.0.1:7000/chiencon')
-	response = http.HttpResponse(chiencon_response.text)
+	chiencon_response = requests.get('http://0.0.0.0:7000/chiencon')
+	response = http.HttpResponse(f'{"result": "OK", "reply": {chiencon_response.text}}')
 	response['content-type'] = 'application/json; charset=utf-8'
 	return response
 
