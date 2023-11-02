@@ -18,9 +18,9 @@ def docker(request):
 	return response
 
 def deeper_api(request):
-	response = requests.get('http://172.17.0.1:7000/chiencon')
-	# response = http.HttpResponse('{"result": "OK", "reply": "docker api trả về kết quả"}')
-	# response['content-type'] = 'application/json; charset=utf-8'
+	chiencon_response = requests.get('http://172.17.0.1:7000/chiencon')
+	response = http.HttpResponse(chiencon_response.text)
+	response['content-type'] = 'application/json; charset=utf-8'
 	return response
 
 def chiencon(request):
