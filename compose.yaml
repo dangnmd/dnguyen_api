@@ -7,16 +7,19 @@
 # You can add other services your application may depend on here, such as a
 # database or a cache. For examples, see the Awesome Compose repository:
 # https://github.com/docker/awesome-compose
-name: s7000
+name: "${PROJECT_NAME}_${HOST_PORT}"
 services:
-  server_s7000:
+  "server_${PROJECT_NAME}_${HOST_PORT}":
     build:
       context: .
     # ports:
     #   - 7000:8000
     network_mode: host
     # maybe image just a name for new image will attach to container
-    image: dnguyen/ddocker:first
+    image: ${DOCKER_IMAGE}
+    volumes:
+    - /home/ubuntu/dnguyen_api:/app
+    command: bash -c "gunicorn ${PROJECT_NAME}.wsgi --bind=0.0.0.0:${HOST_PORT}"
 
 # The commented out section below is an example of how to define a PostgreSQL
 # database that your application can use. `depends_on` tells Docker Compose to
