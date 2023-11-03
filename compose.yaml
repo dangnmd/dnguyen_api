@@ -19,7 +19,7 @@ services:
     image: ${DOCKER_IMAGE}
     volumes:
     - /home/ubuntu/dnguyen_api:/app
-    command: bash -c "gunicorn ${PROJECT_NAME}.wsgi --bind=0.0.0.0:${HOST_PORT}"
+    command: bash -c "gunicorn ${PROJECT_NAME}.wsgi --workers ${NUM_WORKERS} --bind=0.0.0.0:${HOST_PORT}"
 
 # The commented out section below is an example of how to define a PostgreSQL
 # database that your application can use. `depends_on` tells Docker Compose to
