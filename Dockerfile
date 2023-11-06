@@ -1,9 +1,5 @@
 # syntax=docker/dockerfile:1
 
-# Comments are provided throughout this file to help you get started.
-# If you need more help, visit the Dockerfile reference guide at
-# https://docs.docker.com/engine/reference/builder/
-
 ARG PYTHON_VERSION=3.10.12
 FROM python:${PYTHON_VERSION}-slim as base
 
@@ -42,7 +38,8 @@ USER appuser
 # Copy the source code into the container.
 COPY . .
 
-ENTRYPOINT ["sh", "/entrypoint.sh"]
+CMD chmod +x ./entrypoint.sh
+ENTRYPOINT ["sh", "./entrypoint.sh"]
 
 # Expose the port that the application listens on.
 # EXPOSE 8000

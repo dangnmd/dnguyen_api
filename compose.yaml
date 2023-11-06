@@ -9,17 +9,20 @@
 # https://github.com/docker/awesome-compose
 name: "${PROJECT_NAME}_${HOST_PORT}"
 services:
-  "server_${PROJECT_NAME}_${HOST_PORT}":
+  "server_dnguyen_api":
     build:
       context: .
     # ports:
     #   - 7000:8000
     network_mode: host
+    restart: always
+    hostname: ${ENV}_${PROJECT_NAME}_${HOST_PORT}
+    container_name: ${ENV}_${PROJECT_NAME}_${HOST_PORT}
     # maybe image just a name for new image will attach to container
     image: ${DOCKER_IMAGE}
     volumes:
-    - /home/ubuntu/dnguyen_api:/app
-    command: bash -c "gunicorn ${PROJECT_NAME}.wsgi --workers ${NUM_WORKERS} --bind=0.0.0.0:${HOST_PORT}"
+      - /home/ubuntu/${PROJECT_NAME}:/app
+    command: bash -c "gunicorn ${PROJECT_NAME}.wsgi --workers ${NUM_WORKERS} --bind=0.0.0.0:${HOST_PORT} -n ${ENV}_${PROJECT_NAME}_${HOST_PORT}"
 
 # The commented out section below is an example of how to define a PostgreSQL
 # database that your application can use. `depends_on` tells Docker Compose to
