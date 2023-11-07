@@ -39,9 +39,14 @@ USER appuser
 COPY . .
 
 CMD chmod +x ./entrypoint.sh
-ENTRYPOINT ["sh", "./entrypoint.sh"]
+
+#entrypoint will run whenever container start. 
+#It mean current position is inside docker. cmd will be executed inside container
+#so to run wsgi application, using cmd gunicorn project_name.wsgi
+#ENTRYPOINT ["sh", "./entrypoint.sh"]
 
 # Expose the port that the application listens on.
+#Docker use network mode=host so don't need expose port
 # EXPOSE 8000
 
 # Run the application.

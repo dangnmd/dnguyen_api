@@ -17,5 +17,4 @@ fi
 
 SERVICE_NAME=${PROJECT_NAME}_${HOST_PORT}
 
-docker compose up -d
-
+docker restart ${ENV}_${PROJECT_NAME}_${HOST_PORT}
